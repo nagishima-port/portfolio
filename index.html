@@ -5,10 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>私のポートフォリオ</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; color: #333; }
-    h1 { color: #0078d7; }
-    .work { margin: 20px 0; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    a { color: #0078d7; text-decoration: none; }
+    body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+  background: #1e1e1e; /* 濃いグレー背景 */
+  color: #e0e0e0;      /* 明るめの文字色 */
+}
+
+h1 {
+  color: #4da6ff; /* 見出しを青に */
+}
+
+.work {
+  margin: 20px 0;
+  padding: 20px;
+  background: #2c2c2c; /* カード背景をダークグレー */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6); /* 影を強めに */
+}
+
+a {
+  color: #4da6ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.work:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s;
+}
   </style>
 </head>
 <body>
