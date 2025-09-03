@@ -37,6 +37,19 @@ a:hover {
   transform: translateY(-5px);
   transition: transform 0.3s;
 }
+.image-row {
+  display: flex;
+  gap: 20px; /* 画像の間のスペース */
+  justify-content: center; /* 中央 */
+  flex-wrap: wrap; /* 画面が狭いときに自動で折り返し */
+}
+
+.image-row img {
+  border-radius: 8px;
+  max-width: 300px;
+  height: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
   </style>
 </head>
 <body>
@@ -45,7 +58,8 @@ a:hover {
   
   <div class="work">
     <h2>架空ロゴデザイン</h2>
-    <img src="kyoukasho.PNG" alt="ロゴデザイン" width="300">
+    <img src="nabe.PNG" alt="ロゴデザイン" width="250">
+    <img src="yakan.PNG" alt="ロゴデザイン" width="250">
     <p>架空企業をイメージしたロゴ制作例。</p>
   </div>
   
