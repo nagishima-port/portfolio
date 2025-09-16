@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>私のポートフォリオ</title>
+  <title>Otoya Nagishimaのポートフォリオ</title>
   <style>
     body {
   font-family: Arial, sans-serif;
@@ -59,43 +59,74 @@ a:hover {
 .grid{display:grid;gap:24px}
 .card{background:#2c2c2c;border-radius:12px;padding:20px;box-shadow:0 6px 15px rgba(0,0,0,.7)}
 @media (min-width:800px){ .grid{grid-template-columns:1fr 1fr} }
+.portfolio-img {
+  width: 250px;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+}
   </style>
 </head>
 <body>
 <header class="hero">
   <h1>Jellyfish Design Studio</h1>
-  <p class="sub">幻想的な海のモチーフで暮らしを彩る / Enchanting ocean-inspired design</p>
+  <p class="sub">Enchanting ocean-inspired design</p>
 </header>
-  <h1>デザイナー nagishima のポートフォリオ</h1>
-  <p>クラウドワークス・ランサーズで活動中。ロゴ、LP、バナー、UIデザインが得意です。</p>
+
+<!-- ===== プロダクトデザイン ===== -->
+<section id="products" class="grid">
+  <div class="work card">
+    <h2>プロダクトデザイン</h2>
+    <img src="nabe.PNG" alt="鍋デザイン" class="portfolio-img">
+    <img src="yakan.PNG" alt="やかんデザイン" class="portfolio-img">
+    <p>架空デザイン制作例。いつか商品化できたらいいなというイメージ。</p>
+  </div>
+</section>
+
+<!-- ===== グラフィックデザイン ===== -->
+<section id="graphics" class="grid">
+  <div class="work card">
+    <h2>グラフィックデザイン</h2>
+    <img src="sanglier.png" alt="コスメ系ロゴ" class="portfolio-img">
+    <img src="cvmark.PNG" alt="ブランド系ロゴ" class="portfolio-img">
+    <img src="senri.jpeg" alt="ライブフライヤー" class="portfolio-img">
+    <p>過去に制作したロゴやフライヤーデザイン。</p>
+  </div>
+</section>
+  <h1>デザイナー Otoya Nagishima のポートフォリオ</h1>
+  <p>ロゴ　LP バナー　UIデザイン制作</p>
   
-    <section id="works" class="grid">
+    <section id="product-designs" class="grid">
+  <h2>デザイン</h2>
+  <div class="work card">
+    <img src="nabe.PNG" alt="鍋デザイン" class="portfolio-img">
+    <img src="yakan.PNG" alt="やかんデザイン" class="portfolio-img">
+    <p>架空デザイン制作例。いつか商品化できたらいいな、というコンセプト。</p>
+  </div>
+  
+</section>
 
-    <div class="work card">
-      <h2>デザイン</h2>
-      
-    <p>架空デザイン制作例。</p>
-    <img src="sample1.PNG" alt="ロゴデザイン" width="250">
-    <img src="sample2.PNG" alt="ロゴデザイン" width="250">
-    </div>
+<section id="graphic-designs" class="grid">
+  <h2>デザイン</h2>
 
-    <div class="work card">
-      <h2>Concept</h2>
-          <p>いつか商品化できたらいいな、というイメージを形にしました。</p>
-          <img src="nabe.PNG" alt="ロゴデザイン" width="250">
-    <img src="yakan2.PNG" alt="ロゴデザイン" width="250">
-    </div>
+  <div class="work card">
+    <h3>Sanglier ロゴ</h3>
+    <img src="sanglier.png" alt="Sanglier ロゴ" class="portfolio-img">
+    <p>コスメブランドをイメージした、上品さと力強さのあるロゴ。</p>
+  </div>
 
-    <div class="work card">
-      <h2>LPデザイン</h2>
-      <a href="https://figma.com/link-to-sample" target="_blank">デザインを見る</a>
-    </div>
+  <div class="work card">
+    <h3>Clairvoyance ロゴ</h3>
+    <img src="cvmark.PNG" alt="Clairvoyance ロゴ" class="portfolio-img">
+    <p>神秘性を表現したモノクロのエンブレムロゴ。</p>
+  </div>
 
-    <div class="work card">
-      <h2>お問い合わせ</h2>
-      <p>メール: nagishimajet2@gmail.com</p>
-    </div>
+  <div class="work card">
+    <h3>千里眼 フライヤー</h3>
+    <img src="senri.jpeg" alt="千里眼 フライヤー" class="portfolio-img">
+    <p>バンドのワンマンライブ用に制作したフライヤーデザイン。</p>
+  </div>
+</section>
 
-  </section>
 </body>
 </html>
