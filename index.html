@@ -1,174 +1,204 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Otoya のポートフォリオ</title>
   <style>
-    body {
-  font-family: Arial, sans-serif;
-  margin: 40px;
-  background: #1e1e1e; /* 濃いグレー背景 */
-  color: #e0e0e0;      /* 明るめの文字色 */
-}
+    :root{
+      --bg:#111417;
+      --panel:#2c2c2c;
+      --text:#e0e0e0;
+      --muted:#b5b5b5;
+      --accent:#4da6ff;
+      --shadow:0 6px 18px rgba(0,0,0,.35);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; padding:40px 20px;
+      background:var(--bg); color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.6;
+    }
+    h1{font-size:clamp(26px,3.5vw,40px); color:var(--accent); margin:0 0 6px}
+    h2{font-size:clamp(18px,2.2vw,24px); margin:0 0 14px}
+    h3{font-size:18px; margin:0 0 10px}
+    .sub{opacity:.8; margin:0 0 28px}
 
-h1 {
-  color: #4da6ff; /* 見出しを青に */
-}
+    /* 共通カード */
+    .card{
+      background:var(--panel);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
 
-.work {
-  margin: 20px 0;
-  padding: 20px;
-  background: #2c2c2c; /* カード背景をダークグレー */
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.6); /* 影を強めに */
-}
+    /* セクション余白 */
+    section{max-width:1200px; margin:28px auto}
 
-a {
-  color: #4da6ff;
-  text-decoration: none;
-}
+    /* 2列グリッド（広い画面） */
+    .grid-2{
+      display:grid; gap:24px;
+      grid-template-columns:1fr;
+    }
+    @media (min-width:860px){
+      .grid-2{ grid-template-columns:1fr 1fr; }
+    }
 
-a:hover {
-  text-decoration: underline;
-}
+    /* 画像共通 */
+    .img{
+      width:100%; height:auto; display:block;
+      border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,.35);
+    }
 
-.work:hover {
-  transform: translateY(-5px);
-  transition: transform 0.3s;
-}
-.image-row {
-  display: flex;
-  gap: 20px; /* 画像の間のスペース */
-  justify-content: center; /* 中央 */
-  flex-wrap: wrap; /* 画面が狭いときに自動で折り返し */
-}
+    /* プロダクト：中央寄せの2枚横並び */
+    .product-row{
+      display:flex; gap:24px; justify-content:center; flex-wrap:wrap;
+    }
+    .product-row .wrap{
+      width:min(360px,44vw);
+    }
 
-.image-row img {
-  border-radius: 8px;
-  max-width: 300px;
-  height: auto;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-}
-  /* ===== Hero ===== */
-.hero{padding:56px 16px;text-align:center}
-.hero h1{font-size:2.2rem;margin:0 0 8px;color:#4da6ff}
-.hero .sub{opacity:.85;margin:0}
+    /* グラフィック：1枚のカード中に 3 / 2 のギャラリー */
+    .gallery{
+      display:grid; gap:14px;
+      grid-template-columns:1fr;
+    }
+    @media (min-width:680px){
+      .gallery.top{ grid-template-columns:repeat(3,1fr); }
+      .gallery.bottom{ grid-template-columns:repeat(2,1fr); }
+    }
 
-/* ===== Grid (2 columns on wide) ===== */
-.grid{display:grid;gap:24px}
-.card{background:#2c2c2c;border-radius:12px;padding:20px;box-shadow:0 6px 15px rgba(0,0,0,.7)}
-@media (min-width:800px){ .grid{grid-template-columns:1fr 1fr} }
-.portfolio-img {
-  width: 250px;
-  height: auto;
-  display: block;
-  margin: 10px auto;
-}
+    /* 制作物(ロゴ等)：2列 */
+    .works{
+      display:grid; gap:24px; grid-template-columns:1fr;
+    }
+    @media (min-width:860px){
+      .works{ grid-template-columns:1fr 1fr; }
+    }
 
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-.btn:hover {
-  background-color: #0056b3;
-｝
-  
-  
+    /* ボタン */
+    .center{ text-align:center; }
+    .btn{
+      display:inline-block; padding:12px 26px;
+      background:#007bff; color:#fff; text-decoration:none; font-weight:700;
+      border-radius:8px; transition:background .2s ease;
+    }
+    .btn:hover{ background:#0568cc; }
+
+    /* 小さな補足テキスト */
+    .mute{color:var(--muted); font-size:.95rem; margin-top:10px}
   </style>
 </head>
 <body>
-<header class="hero">
-  <h1>Jellyfish Design Studio</h1>
-  <p class="sub">Enchanting ocean-inspired design</p>
-</header>
 
-<!-- ===== プロダクトデザイン ===== -->
-<section id="products" class="grid">
-  <div class="work card">
-    <h2>プロダクトデザイン</h2>
-    <img src="nabe.PNG" alt="鍋デザイン" class="portfolio-img">
-    <img src="yakan2.png" alt="やかんデザイン" class="portfolio-img">
-    <p>架空デザイン制作例。いつか商品化できたらいいなというイメージ。</p>
-  </div>
-</section>
+  <header class="center" style="margin-bottom:8px;">
+    <h1>Jellyfish Design Studio</h1>
+    <p class="sub">Enchanting ocean-inspired design</p>
+  </header>
 
-<!-- ===== グラフィックデザイン ===== -->
-<section id="graphics" class="grid">
-  <div class="work card">
-    <h2>グラフィックデザイン</h2>
-    <img src="kurage1.png" alt="クラゲのデザイン1" class="portfolio-img">
-    <img src="kurage2.png" alt="クラゲのデザイン2" class="portfolio-img">
-    <img src="kurage3.PNG" alt="クラゲのデザイン3" class="portfolio-img">
-    <img src="kinoko.png" alt="カラフルなキノコのデザイン" class="portfolio-img">
-    <p>海や自然をテーマにしたグラフィックデザイン作品。</p>
-  </div>
-</section>
+  <!-- プロダクトデザイン（2枚を中央に横並び） -->
+  <section>
+    <div class="card">
+      <h2>プロダクトデザイン</h2>
+      <div class="product-row">
+        <div class="wrap">
+          <img class="img" src="nabe.PNG" alt="クラゲデザイン鍋" />
+        </div>
+        <div class="wrap">
+          <img class="img" src="yakan.PNG" alt="クラゲデザインやかん" />
+        </div>
+      </div>
+      <p class="mute">架空デザイン制作例。いつか商品化できたらいいな、というコンセプト。</p>
+    </div>
+  </section>
 
-<div style="text-align: center; margin: 40px 0;">
-  <a href="lp-sample.html" class="btn">LP作品を見る</a>
-</div>
+  <!-- グラフィックデザイン：1つのカードの中に 3 + 2 のギャラリー -->
+  <section>
+    <div class="card">
+      <h2>グラフィックデザイン</h2>
 
-  <h1>デザイナー Otoya Nagishima のポートフォリオ</h1>
-  <p>ロゴ　LP バナー　UIデザイン制作</p>
-  
+      <!-- 上段：クラゲ 3点 -->
+      <div class="gallery top" style="margin-bottom:14px;">
+        <!-- ▼あなたのファイル名に差し替え -->
+        <img class="img" src="kurage1.png" alt="クラゲのデザイン1">
+        <img class="img" src="kurage2.png" alt="クラゲのデザイン2">
+        <img class="img" src="kurage3.png" alt="クラゲのデザイン3">
+      </div>
 
-<section id="graphic-designs" class="grid">
-   <h2 class="section-title">デザイン</h2>
-  <div class="work card">
-    <h3>Sanglier ロゴ</h3>
-    <img src="sanglier.png" alt="Sanglier " class="portfolio-img">
-    <p>上品さと力強さのある猪をイメージ</p>
-  </div>
+      <!-- 下段：キノコ + 鯉 2点 -->
+      <div class="gallery bottom">
+        <!-- ▼キノコ画像（例：kinoko.png） -->
+        <img class="img" src="kinoko.png" alt="カラフルなキノコのデザイン">
+        <!-- ▼鯉画像（まだなら仮画像でもOK：koi.png に差し替え） -->
+        <img class="img" src="koi.png" alt="鯉のデザイン">
+      </div>
 
-  <div class="work card">
-    <h3>Clairvoyance ロゴ</h3>
-    <img src="cvmark.PNG" alt="Clairvoyance " class="portfolio-img">
-    <p>神秘性を表現したモノクロのエンブレムロゴ</p>
-  </div>
+      <p class="mute">海や自然をテーマにしたグラフィック制作の抜粋。</p>
+    </div>
+  </section>
 
-  <div class="work card">
-    <h3>みらいの芽 ロゴ</h3>
-    <img src="mirai.png" alt=" 未来を育む" class="portfolio-img">
-    <p>自然の力で未来を育むをテーマにしたロゴ</p>
-  </div>
-  
-    <div class="work card">
-    <h3>法律事務所 ロゴ</h3>
-    <img src="sample2.PNG" alt="法律事務所" class="portfolio-img">
-    <p>気品とカジュアルさを意識した法律事務所</p>
-  </div>
-  
-  <div class="work card">
-    <h3>まなびの杜 ロゴ</h3>
-    <img src="manabi.png" alt=" コミュニティ" class="portfolio-img">
-    <p>学び合い未来が育つコミュニティ</p>
-  </div>
-  
-  <div class="work card">
-    <h3>SecureLeaf ロゴ</h3>
-    <img src="SecureLeaf.png" alt=" ITサービス" class="portfolio-img">
-    <p>持続可能なセキュリティをイメージ</p>
-  </div>
-  
-  <div class="work card">
-    <h3>すくすくこどもクリニック ロゴ</h3>
-    <img src="sukusuku.png" alt=" 小児科" class="portfolio-img">
-    <p>小児科のやさしいイメージ</p>
-  </div>
-  
-  <div class="work card">
-    <h3>ライブ フライヤー</h3>
-    <img src="senri.png" alt="千里眼 フライヤー" class="portfolio-img">
-    <p>ライブ用に制作したバンドロゴとフライヤーデザイン。</p>
-  </div>
-</section>
+  <!-- LP ボタン（中央） -->
+  <section class="center" style="margin-top:6px;">
+    <a class="btn" href="lp-sample.html">LP作品を見る</a>
+  </section>
+
+  <!-- 制作物（ロゴ / フライヤー） 2列グリッド。4枚にして“左の空き”を解消 -->
+  <section>
+    <h2>デザイナー Otoya Nagishima のポートフォリオ</h2>
+    <p class="mute">ロゴ　LP　バナー　UIデザイン制作</p>
+
+    <div class="works">
+      <div class="card">
+        <h3>Sanglier ロゴ</h3>
+        <img class="img" src="sanglier.png" alt="Sanglier ロゴ">
+        <p class="mute">上品さと力強さのある猪をイメージ</p>
+      </div>
+
+      <div class="card">
+        <h3>Clairvoyance ロゴ</h3>
+        <img class="img" src="cvmark.PNG" alt="Clairvoyance ロゴ">
+        <p class="mute">神秘性を表現したモノクロのエンブレムロゴ</p>
+      </div>
+
+      <div class="card">
+        <h3>みらいの芽 ロゴ</h3>
+        <img class="img" src="mirai.png" alt="みらいの芽 ロゴ">
+        <p class="mute">自然の力で未来を育むをテーマにしたロゴ</p>
+      </div>
+
+      <div class="card">
+        <h3>法律事務所 ロゴ</h3>
+        <img class="img" src="houritsu.PNG" alt="法律事務所 ロゴ">
+        <p class="mute">気品とカジュアルさを意識したデザイン</p>
+      </div>
+      
+      <div class="card">
+        <h3>まなびの杜 ロゴ</h3>
+        <img class="img" src="manabi.png" alt="まなびの杜 ロゴ">
+        <p class="mute">学び合い未来が育つコミュニティ</p>
+      </div>
+      
+      <div class="card">
+        <h3>SecureLeaf ロゴ</h3>
+        <img class="img" src="SecureLeaf.png" alt="SecureLeaf ロゴ">
+        <p class="mute">持続可能なセキュリティをイメージ</p>
+      </div>
+      
+      <div class="card">
+        <h3>すくすくこどもクリニック ロゴ</h3>
+        <img class="img" src="sukusuku.png" alt="すくすくこどもクリニック ロゴ">
+        <p class="mute">小児科のやさしいイメージをデザイン</p>
+      </div>
+      
+      <div class="card">
+        <h3>ライブ フライヤー</h3>
+        <img class="img" src="senri.png" alt="千里眼 フライヤー">
+        <p class="mute">ライブ用に制作したバンドロゴとフライヤーデザイン。</p>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
